@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@create-figma-plugin/ui": "^4.0.1",
+    "@create-figma-plugin/utilities": "^4.0.1",
+    "papaparse": "^5.5.3",
+    "preact": ">=10"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^4.0.1",
+    "@create-figma-plugin/tsconfig": "^4.0.1",
+    "@figma/plugin-typings": "^1.116.0",
+    "@types/papaparse": "^5.3.16",
+    "typescript": ">=4"
+  },
+  "scripts": {
+    "csvs": "node scripts/generate-csvs.mjs",
+    "build": "npm run csvs && build-figma-plugin --typecheck --minify",
+    "watch": "npm run csvs && node scripts/watch-csvs.mjs & build-figma-plugin --typecheck --watch"
+  },
+  "figma-plugin": {
+    "editorType": [
+      "figma"
+    ],
+    "id": "snap-table",
+    "name": "SnapTable",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
+  }
+}
